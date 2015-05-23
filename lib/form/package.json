@@ -1,0 +1,14 @@
+{
+  "name": "form",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "browser": {
+    "./template.js": "./template.browser.js"
+  },
+  "author": "Guille Paz <guille87paz@gmail.com> (http://pazguille.me/)",
+  "license": "MIT"
+}

@@ -1,0 +1,11 @@
+form(novalidate="novalidate").form
+
+  fieldset
+    if (legend)
+      legend.legend= legend
+
+    input.input-control(spellcheck="false", placeholder="Input", type="text")
+
+  .form-actions
+    button(type="submit")= submitLabel
+    button(type="button").js-refresh Refresh

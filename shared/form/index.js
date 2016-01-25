@@ -1,6 +1,9 @@
 'use strict';
 
-var template = require('./template.js');
+var virtualdom = require('virtual-dom');
+var jadeVirtualdom = require('jade-virtualdom');
+
+var template = require('./templates/form.js');
 var id = 0;
 
 /**
@@ -10,6 +13,10 @@ function Form(options) {
   this.container = options.container;
   this.options = options || {};
   this._id = id++;
+  // this.virtual = jadeVirtualdom(template());
+  if (typeof window !== 'undefined') {
+    window.jadeVirtual = jadeVirtualdom;
+  }
 };
 
 Form.prototype.toHTML = function() {

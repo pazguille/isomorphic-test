@@ -3,12 +3,12 @@
 /**
  * Module dependencies
  */
-var formHome = require('../lib/home-form');
+var formHome = require('../shared/home-form');
 
 /**
  * Form
  */
-var form = window.form = formHome();
+var form = formHome();
 
 /**
  * Set UI Events

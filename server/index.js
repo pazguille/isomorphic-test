@@ -14,8 +14,8 @@ var app = module.exports = express();
 /**
  * Set jade templates
  */
-app.set('views', __dirname + '/../lib/home');
-app.set('view engine', 'jade');
+// app.set('views', __dirname + '/home');
+// app.set('view engine', 'jade');
 
 /**
  * Set static directory
@@ -31,7 +31,7 @@ app.use(bodyParser.json());
 /**
  * Home router
  */
-app.use('/', require('lib/home'));
+app.use('/', require('./home'));
 
 /**
  * Server listen on port

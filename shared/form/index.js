@@ -1,10 +1,19 @@
 'use strict';
 
-var virtualdom = require('virtual-dom');
-var jadeVirtualdom = require('jade-virtualdom');
-
 var template = require('./templates/form.js');
 var id = 0;
+
+var VNode = require('virtual-dom/vnode/vnode');
+var VText = require('virtual-dom/vnode/vtext');
+var createElement = require('virtual-dom/create-element');
+var diff = require('virtual-dom/diff');
+var patch = require('virtual-dom/patch');
+
+
+var convertHTML = require('html-to-vdom')({
+    VNode: VNode,
+    VText: VText
+});
 
 /**
  * Form
@@ -13,10 +22,20 @@ function Form(options) {
   this.container = options.container;
   this.options = options || {};
   this._id = id++;
-  // this.virtual = jadeVirtualdom(template());
-  if (typeof window !== 'undefined') {
-    window.jadeVirtual = jadeVirtualdom;
-  }
+
+  this.virtual = convertHTML(template(this.options));
+  var rootNode = createElement(this.virtual);
+  $(this.container)[0].appendChild(rootNode);
+
+  var self = this;
+  this.options.count = 0;
+  setInterval(function () {
+    self.options.count++;
+    var newTree = convertHTML(template(self.options));
+    var patches = diff(self.virtual, newTree);
+    rootNode = patch(rootNode, patches);
+    self.virtual = newTree;
+  }, 1000);
 };
 
 Form.prototype.toHTML = function() {

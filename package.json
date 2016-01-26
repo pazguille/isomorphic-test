@@ -10,10 +10,11 @@
   "author": "Guille Paz <guille87paz@gmail.com> (http://pazguille.me/)",
   "dependencies": {
     "body-parser": "1.14.2",
+    "diff": "^2.2.1",
     "express": "4.13.4",
+    "html-to-vdom": "0.7.0",
     "jade": "1.11.0",
-    "jade-virtualdom": "0.0.5",
-    "virtual-dom": "^2.1.1"
+    "virtual-dom": "2.1.1"
   },
   "license": "MIT",
   "devDependencies": {

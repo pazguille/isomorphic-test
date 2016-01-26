@@ -2,7 +2,7 @@ form(novalidate="novalidate").form
 
   fieldset
     if (legend)
-      legend.legend= legend
+      legend.legend= legend + ' ' + count
 
     input.input-control(spellcheck="false", placeholder="Input", type="text")
 

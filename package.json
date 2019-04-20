@@ -10,7 +10,7 @@
   "author": "Guille Paz <guille87paz@gmail.com> (http://pazguille.me/)",
   "dependencies": {
     "body-parser": "1.15.2",
-    "diff": "^3.1.0",
+    "diff": "^4.0.1",
     "express": "4.14.0",
     "jade": "1.11.0",
     "morphdom": "^2.2.1",
